@@ -15,9 +15,9 @@ class ModuleServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'typicms.taxonomies');
-        $this->mergeConfigFrom(__DIR__.'/../../config/permissions.php', 'typicms.permissions');
-        $this->mergeConfigFrom(__DIR__.'/../../config/config-terms.php', 'typicms.terms');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'typicms.taxonomies');
+        $this->mergeConfigFrom(__DIR__.'/../config/permissions.php', 'typicms.permissions');
+        $this->mergeConfigFrom(__DIR__.'/../config/config-terms.php', 'typicms.terms');
 
         $modules = $this->app['config']['typicms']['modules'];
         $this->app['config']->set('typicms.modules', array_merge(['taxonomies' => []], $modules));
