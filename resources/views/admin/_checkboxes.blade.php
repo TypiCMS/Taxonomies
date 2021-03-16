@@ -1,3 +1,6 @@
+@php
+    $model->terms = $model->terms()->pluck('terms.id')->all();
+@endphp
 @if ($taxonomies = Taxonomies::whereRaw('JSON_CONTAINS(modules, \'"'.$module.'"\')')->order()->get() and $taxonomies->count() > 0)
     @foreach ($taxonomies as $taxonomy)
     <div class="col-md-3">
