@@ -16,9 +16,9 @@ class ApiController extends BaseApiController
     {
         $data = QueryBuilder::for(Taxonomy::class)
             ->selectFields($request->input('fields.taxonomies'))
-            ->allowedSorts(['title_translated', 'position'])
+            ->allowedSorts(['title_translated', 'result_string_translated', 'position', 'name'])
             ->allowedFilters([
-                AllowedFilter::custom('title', new FilterOr()),
+                AllowedFilter::custom('title,name,result_string', new FilterOr()),
             ])
             ->paginate($request->input('per_page'));
 

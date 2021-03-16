@@ -11,8 +11,11 @@ class CreateTaxonomiesTables extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('position')->unsigned()->default(1);
+            $table->string('name');
             $table->json('title');
             $table->json('slug');
+            $table->json('result_string');
+            $table->json('modules');
             $table->timestamps();
         });
         Schema::create('terms', function (Blueprint $table) {

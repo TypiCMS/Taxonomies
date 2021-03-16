@@ -25,10 +25,15 @@ class Taxonomy extends Base implements Sortable
     public $translatable = [
         'title',
         'slug',
+        'result_string',
     ];
 
     public $sortable = [
         'order_column_name' => 'position',
+    ];
+
+    public $casts = [
+        'modules' => 'array',
     ];
 
     public function allForSelect(): array
