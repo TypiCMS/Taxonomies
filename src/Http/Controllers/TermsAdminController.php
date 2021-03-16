@@ -5,7 +5,7 @@ namespace TypiCMS\Modules\Taxonomies\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Taxonomies\Http\Requests\FormRequest;
+use TypiCMS\Modules\Taxonomies\Http\Requests\TermFormRequest;
 use TypiCMS\Modules\Taxonomies\Models\Taxonomy;
 use TypiCMS\Modules\Taxonomies\Models\Term;
 
@@ -34,7 +34,7 @@ class TermsAdminController extends BaseAdminController
             ]);
     }
 
-    public function store(Taxonomy $taxonomy, FormRequest $request): RedirectResponse
+    public function store(Taxonomy $taxonomy, TermFormRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $data['taxonomy_id'] = $taxonomy->id;
@@ -43,7 +43,7 @@ class TermsAdminController extends BaseAdminController
         return $this->redirect($request, $term);
     }
 
-    public function update(Taxonomy $taxonomy, Term $term, FormRequest $request): RedirectResponse
+    public function update(Taxonomy $taxonomy, Term $term, TermFormRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $data['taxonomy_id'] = $taxonomy->id;
