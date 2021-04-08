@@ -26,7 +26,7 @@
         <item-list-column-header name="position" sortable :sort-array="sortArray" :label="$t('Position')"></item-list-column-header>
         <item-list-column-header name="name" sortable :sort-array="sortArray" :label="$t('Name')"></item-list-column-header>
         <item-list-column-header name="title_translated" sortable :sort-array="sortArray" :label="$t('Title')"></item-list-column-header>
-        <item-list-column-header name="result_string_translated" sortable :sort-array="sortArray" :label="$t('Info for results')"></item-list-column-header>
+        <item-list-column-header name="result_string_translated" sortable :sort-array="sortArray" :label="$t('Info for search results')"></item-list-column-header>
         <item-list-column-header name="modules" :label="$t('Modules')"></item-list-column-header>
     </template>
 

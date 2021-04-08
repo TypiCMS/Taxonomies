@@ -4,7 +4,7 @@
 {!! BootForm::hidden('id') !!}
 
 {!! BootForm::text(__('Name'), 'name')->required() !!}
-{!! TranslatableBootForm::text(__('String to show in results'), 'result_string') !!}
+{!! TranslatableBootForm::text(__('Info for search results'), 'result_string') !!}
 
 @include('core::form._title-and-slug')
 
