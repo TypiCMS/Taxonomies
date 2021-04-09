@@ -11,9 +11,7 @@ use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Translatable\HasTranslations;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\History\Traits\Historable;
-use TypiCMS\Modules\Projects\Models\Project;
 use TypiCMS\Modules\Taxonomies\Presenters\ModulePresenter;
-use TypiCMS\Modules\Theses\Models\Thesis;
 
 class Term extends Base implements Sortable
 {
@@ -70,17 +68,10 @@ class Term extends Base implements Sortable
         return $this->belongsTo(Taxonomy::class);
     }
 
-    public function publishedProjects(): MorphToMany
-    {
-        return $this->morphedByMany(Project::class, 'model', 'model_has_terms')
-            ->published()
-            ->withTimestamps();
-    }
-
-    public function publishedTheses(): MorphToMany
-    {
-        return $this->morphedByMany(Thesis::class, 'model', 'model_has_terms')
-            ->published()
-            ->withTimestamps();
-    }
+    // public function publishedProjects(): MorphToMany
+    // {
+    //     return $this->morphedByMany(Project::class, 'model', 'model_has_terms')
+    //         ->published()
+    //         ->withTimestamps();
+    // }
 }
