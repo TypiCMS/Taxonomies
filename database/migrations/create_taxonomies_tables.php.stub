@@ -15,6 +15,7 @@ class CreateTaxonomiesTables extends Migration
             $table->string('name');
             $table->json('title');
             $table->json('slug');
+            $table->string('validation_rule');
             $table->json('result_string');
             $table->json('modules');
             $table->timestamps();

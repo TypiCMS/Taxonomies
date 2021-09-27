@@ -16,9 +16,9 @@ class ApiController extends BaseApiController
     {
         $data = QueryBuilder::for(Taxonomy::class)
             ->selectFields($request->input('fields.taxonomies'))
-            ->allowedSorts(['title_translated', 'result_string_translated', 'position', 'name'])
+            ->allowedSorts(['title_translated', 'validation_rule', 'result_string_translated', 'position', 'name'])
             ->allowedFilters([
-                AllowedFilter::custom('title,name,result_string', new FilterOr()),
+                AllowedFilter::custom('title,name,validation_rule,result_string', new FilterOr()),
             ])
             ->paginate($request->input('per_page'));
 
@@ -43,7 +43,7 @@ class ApiController extends BaseApiController
     public function destroy(Taxonomy $taxonomy)
     {
         if ($taxonomy->terms->count() > 0) {
-            return response(['message' => 'This taxonomy cannot be deleted as it contains terms.'], 403);
+            return response(['message' => __('This taxonomy cannot be deleted as it contains terms.')], 403);
         }
         $taxonomy->delete();
     }

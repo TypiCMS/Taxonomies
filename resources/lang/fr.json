@@ -8,5 +8,7 @@
     "taxonomies": "taxonomie|taxonomies",
     "Terms": "Termes",
     "terms": "terme|termes",
-    "Use in modules": "Utiliser dans les modules"
+    "This taxonomy cannot be deleted as it contains terms.": "Cette taxonomie ne peut pas être supprimée car elle contient des termes.",
+    "Use in modules": "Utiliser dans les modules",
+    "Validation rule": "Règle de validation"
 }

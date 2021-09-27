@@ -13,6 +13,7 @@ class FormRequest extends AbstractFormRequest
             'title.*' => 'nullable|max:255',
             'slug.*' => 'nullable|alpha_dash|max:255|required_with:title.*',
             'result_string.*' => 'nullable|max:255',
+            'validation_rule' => 'nullable|max:255',
             'modules' => 'array',
         ];
     }

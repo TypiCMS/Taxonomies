@@ -8,6 +8,8 @@
 
 @include('core::form._title-and-slug')
 
+{!! BootForm::text(__('Validation'), 'validation_rule') !!}
+
 {!! Form::hidden('modules[]')->value('') !!}
 @if (!empty($modules))
 <label class="form-label">@lang('Use in modules')</label>

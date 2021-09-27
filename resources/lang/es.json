@@ -6,7 +6,9 @@
     "New term": "Nuevo término",
     "Taxonomies": "Taxonomías",
     "taxonomies": "taxonomía|taxonomías",
+    "This taxonomy cannot be deleted as it contains terms.": "Esta taxonomía no puede ser eliminada ya que contiene términos.",
     "Terms": "Términos",
     "terms": "término|términos",
-    "Use in modules": "Uso en módulos"
+    "Use in modules": "Uso en módulos",
+    "Validation rule": "Norma de validación"
 }
