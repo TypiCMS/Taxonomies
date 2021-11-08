@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
-use TypiCMS\Modules\Taxonomies\Facades\Taxonomies;
+use TypiCMS\Modules\Taxonomies\Models\Taxonomy;
 use TypiCMS\Modules\Taxonomies\Models\Term;
 
 trait HasTerms
@@ -28,7 +28,7 @@ trait HasTerms
 
     public function getTaxonomies(): Collection
     {
-        return Taxonomies::whereJsonContains('modules', $this->getTable())
+        return Taxonomy::whereJsonContains('modules', $this->getTable())
             ->order()
             ->get();
     }
