@@ -8,7 +8,7 @@
 
 @include('core::form._title-and-slug')
 
-{!! BootForm::text(__('Validation'), 'validation_rule') !!}
+{!! BootForm::text(__('Validation rule'), 'validation_rule') !!}
 
 {!! Form::hidden('modules[]')->value('') !!}
 @if (!empty($modules))
