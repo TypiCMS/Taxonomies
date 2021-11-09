@@ -3,6 +3,7 @@
 namespace TypiCMS\Modules\Taxonomies\Providers;
 
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use TypiCMS\Modules\Core\Observers\SlugObserver;
 use TypiCMS\Modules\Taxonomies\Composers\SidebarViewComposer;
@@ -13,14 +14,11 @@ use TypiCMS\Modules\Taxonomies\Models\Term;
 
 class ModuleServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'typicms.taxonomies');
         $this->mergeConfigFrom(__DIR__.'/../config/permissions.php', 'typicms.permissions');
         $this->mergeConfigFrom(__DIR__.'/../config/config-terms.php', 'typicms.terms');
-
-        $modules = $this->app['config']['typicms']['modules'];
-        $this->app['config']->set('typicms.modules', array_merge(['taxonomies' => []], $modules));
 
         $this->loadViewsFrom(__DIR__.'/../../resources/views/', 'taxonomies');
 
@@ -39,22 +37,14 @@ class ModuleServiceProvider extends ServiceProvider
         Taxonomy::observe(new SlugObserver());
         Term::observe(new SlugObserver());
 
-        /*
-         * Sidebar view composer
-         */
-        $this->app->view->composer('core::admin._sidebar', SidebarViewComposer::class);
+        View::composer('core::admin._sidebar', SidebarViewComposer::class);
     }
 
-    public function register()
+    public function register(): void
     {
-        $app = $this->app;
+        $this->app->register(RouteServiceProvider::class);
 
-        /*
-         * Register route service provider
-         */
-        $app->register(RouteServiceProvider::class);
-
-        $app->bind('Terms', Term::class);
-        $app->bind('Taxonomies', Taxonomy::class);
+        $this->app->bind('Terms', Term::class);
+        $this->app->bind('Taxonomies', Taxonomy::class);
     }
 }

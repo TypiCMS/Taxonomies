@@ -12,7 +12,7 @@ use TypiCMS\Modules\Taxonomies\Http\Controllers\TermsApiController;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    public function map()
+    public function map(): void
     {
         /*
          * Admin routes
